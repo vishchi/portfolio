@@ -2,9 +2,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { withBasePath } from "@/lib/basePath";
+
+const modelPath = withBasePath("/models/hat-transformed.glb");
 
 export default function Hat(props) {
-  const { nodes, materials } = useGLTF("/models/hat-transformed.glb");
+  const { nodes, materials } = useGLTF(modelPath);
   const modelRef = useRef();
 
   useFrame(() => {
@@ -32,4 +35,4 @@ export default function Hat(props) {
   );
 }
 
-useGLTF.preload("/models/hat-transformed.glb");
+useGLTF.preload(modelPath);

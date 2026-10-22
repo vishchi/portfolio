@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { withBasePath } from "@/lib/basePath";
 
 const Modal = ({ onClose, toggle }) => {
   return createPortal(
@@ -86,7 +87,10 @@ const Sound = () => {
       )}
 
       <audio ref={audioRef} loop>
-        <source src={"/audio/birds39-forest-20772.mp3"} type="audio/mpeg" />
+        <source
+          src={withBasePath("/audio/birds39-forest-20772.mp3")}
+          type="audio/mpeg"
+        />
         your browser does not support the audio element.
       </audio>
       <motion.button

@@ -2,9 +2,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { withBasePath } from "@/lib/basePath";
+
+const modelPath = withBasePath("/models/wizard-transformed.glb");
 
 export default function Wizard(props) {
-  const { nodes, materials } = useGLTF("/models/wizard-transformed.glb");
+  const { nodes, materials } = useGLTF(modelPath);
 
   const modelRef = useRef();
 
@@ -208,4 +211,4 @@ export default function Wizard(props) {
   );
 }
 
-useGLTF.preload("/models/wizard-transformed.glb");
+useGLTF.preload(modelPath);

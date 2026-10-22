@@ -2,9 +2,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { withBasePath } from "@/lib/basePath";
+
+const modelPath = withBasePath("/models/staff-transformed.glb");
 
 export default function Staff(props) {
-  const { nodes, materials } = useGLTF("/models/staff-transformed.glb");
+  const { nodes, materials } = useGLTF(modelPath);
   const modelRef = useRef();
 
   useFrame(() => {
@@ -68,4 +71,4 @@ export default function Staff(props) {
   );
 }
 
-useGLTF.preload("/models/staff-transformed.glb");
+useGLTF.preload(modelPath);
