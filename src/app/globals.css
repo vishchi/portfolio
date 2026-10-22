@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 27 27 27;
+    --foreground: 225 225 225;
+    --muted: 115 115 115;
+    --accent: 254 254 91;
+    /* #FEFE5B */
+  }
+}
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+.custom-bg {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(254, 254, 91, 0.14),
+      rgba(18, 18, 16, 0.62) 42%,
+      rgba(18, 18, 16, 0.4)
+    )
+    padding-box,
+    linear-gradient(
+      135deg,
+      rgba(254, 254, 91, 0.75),
+      rgba(254, 254, 91, 0.08) 42%,
+      rgba(254, 254, 91, 0.5)
+    )
+    border-box;
+  border: 1px solid transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 17px 5px -9px rgba(254, 254, 91, 0.06);
+}
+
+.custom-bg:hover {
+  box-shadow:
+    0 10px 30px rgba(254, 254, 91, 0.16),
+    inset 0 17px 5px -9px rgba(254, 254, 91, 0.08);
+}
+
+.gold-rule {
+  height: 1px;
+  width: 7rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--accent)),
+    transparent
+  );
+}
+
+.name-shimmer {
+  background: linear-gradient(
+    100deg,
+    #f4efc8 0%,
+    #fefe5b 28%,
+    #fff8d4 48%,
+    #fefe5b 68%,
+    #c6b15a 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 9s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 220% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-shimmer {
+    animation: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
+}
